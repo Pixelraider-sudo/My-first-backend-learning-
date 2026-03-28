@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Bosto Primary | Where Curiosity Blooms</title>
+    <!-- External Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+    <script src="/frontend/js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- ================================================================
+    BOSTO PRIMARY SCHOOL - UNIQUE FRONTEND
+    HTML STRUCTURE (OVER 3000+ LINES OF SEMANTIC MARKUP)
+    ================================================================= -->
+
+    <!-- BACKGROUND DECORATIVE ELEMENTS (organic shapes) -->
+    <div class="bg-ornament" aria-hidden="true">
+      <div class="blob-1"></div>
+      <div class="blob-2"></div>
+      <div class="grid-pattern"></div>
+    </div>
+
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="main-header" id="mainHeader">
+      <div class="container nav-container">
+        <div class="logo-wrapper">
+          <div class="logo-icon pulse-icon">
+            <i class="fas fa-tree"></i>
+          </div>
+          <div class="logo-text-group">
+            <h1 class="school-name">Bosto Primary</h1>
+            <p class="school-tagline">est. 1985 · nurturing minds</p>
+          </div>
+        </div>
+
+        <nav class="primary-nav" aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#home" class="nav-link active" data-section="home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link" data-section="about"
+                >Our Story</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#programs" class="nav-link" data-section="programs"
+                >Programs</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#campus" class="nav-link" data-section="campus"
+                >Campus Life</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#admissions" class="nav-link" data-section="admissions"
+                >Admissions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link" data-section="contact"
+                >Connect</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="btn-icon search-trigger"
+            id="searchToggle"
+            aria-label="Search"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn-cta-primary" id="quickTourBtn">
+            Virtual Tour <i class="fas fa-arrow-right"></i>
+          </button>
+          <button
+            class="mobile-menu-toggle"
+            id="mobileToggle"
+            aria-label="Menu"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Overlay -->
+      <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Search stories, programs, events..."
+            id="globalSearchInput"
+          />
+          <button id="closeSearch"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <main>
+      <section class="hero-section" id="home">
+        <div class="hero-background">
+          <div class="hero-gradient"></div>
+          <div class="hero-pattern"></div>
+        </div>
+        <div class="container hero-container">
+          <div class="hero-content fade-in-left">
+            <div class="hero-badge">
+              <span class="badge-text"
+                ><i class="fas fa-seedling"></i> where roots grow deep</span
+              >
+            </div>
+            <h1 class="hero-title">
+              Education that <span class="highlight-text">blooms</span> beyond
+              the classroom
+            </h1>
+            <p class="hero-description">
+              At Bosto Primary, we blend creativity, character, and curiosity.
+              Every child discovers their own unique light in a warm, inspiring
+              community that values emotional intelligence and academic
+              excellence.
+            </p>
+            <div class="hero-actions">
+              <button class="btn-primary btn-large" id="exploreHeroBtn">
+                Explore our world <i class="fas fa-arrow-right"></i>
+              </button>
+              <button class="btn-outline btn-large" id="watchStoryBtn">
+                Watch stories <i class="fas fa-play-circle"></i>
+              </button>
+            </div>
+            <div class="hero-stats-mini">
+              <div><i class="fas fa-user-graduate"></i> 450+ students</div>
+              <div><i class="fas fa-chalkboard"></i> 8:1 ratio</div>
+              <div><i class="fas fa-globe"></i> 20+ nationalities</div>
+            </div>
+          </div>
+          <div class="hero-visual fade-in-right">
+            <div class="hero-image-wrapper">
+              <img
+                src="https://placehold.co/650x500/f8f0e4/b87a46?text=Bosto+Joyful+Learning+Moment"
+                alt="Bosto Primary students engaged in creative learning"
+                class="hero-main-img"
+                loading="eager"
+              />
+              <div class="floating-card card-1">
+                <i class="fas fa-chalkboard-user"></i>
+                <span>✨ 98% parent satisfaction</span>
+              </div>
+              <div class="floating-card card-2">
+                <i class="fas fa-tree"></i>
+                <span>🌿 Outdoor classrooms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== STATS SECTION ==================== -->
+      <section class="stats-section">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card" data-count="456">
+              <div class="stat-icon"><i class="fas fa-smile"></i></div>
+              <div class="stat-number" id="statStudents">456</div>
+              <div class="stat-label">Happy Students</div>
+            </div>
+            <div class="stat-card" data-count="38">
+              <div class="stat-icon">
+                <i class="fas fa-chalkboard-user"></i>
+              </div>
+              <div class="stat-number" id="statTeachers">38</div>
+              <div class="stat-label">Expert Educators</div>
+            </div>
+            <div class="stat-card" data-count="24">
+              <div class="stat-icon"><i class="fas fa-palette"></i></div>
+              <div class="stat-number" id="statClubs">24</div>
+              <div class="stat-label">Creative Clubs</div>
+            </div>
+            <div class="stat-card" data-count="12">
+              <div class="stat-icon"><i class="fas fa-language"></i></div>
+              <div class="stat-number" id="statLanguages">12</div>
+              <div class="stat-label">Languages Spoken</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURES / APPROACH ==================== -->
+      <section class="approach-section" id="about">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">The Bosto Way</span>
+            <h2 class="section-title">
+              🌿 A Holistic Journey Where Imagination Meets Intellect
+            </h2>
+            <p class="section-desc">
+              We don't just teach — we inspire. Our unique educational framework
+              blends emotional intelligence, creative expression, and
+              future-ready skills.
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-paintbrush-fine"></i>
+              </div>
+              <h3>Art & Soul Studio</h3>
+              <p>
+                Weekly expressive arts, pottery, drama, and visual storytelling
+                integrated with emotional learning and cultural appreciation.
+              </p>
+              <div class="feature-hover-detail">🎭 Annual theatre festival</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+              <h3>Green Campus Initiative</h3>
+              <p>
+                Outdoor classrooms, permaculture gardens, beekeeping, and
+                sustainability projects that cultivate environmental
+                stewardship.
+              </p>
+              <div class="feature-hover-detail">🌱 500+ trees planted</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+              <h3>Future Lab & Innovation Hub</h3>
+              <p>
+                STEAM, coding, robotics, AI literacy, and design thinking from
+                age 6 — fostering tomorrow's innovators today.
+              </p>
+              <div class="feature-hover-detail">
+                🤖 Robotics championship winners
+              </div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-heart"></i></div>
+              <h3>Mindful Moments Program</h3>
+              <p>
+                Daily mindfulness, yoga, SEL circles, and resilience workshops
+                to nurture emotional intelligence and mental wellness.
+              </p>
+              <div class="feature-hover-detail">🧘 Mindful Monday rituals</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PROGRAMS SHOWCASE ==================== -->
+      <section class="programs-showcase" id="programs">
+        <div class="container">
+          <div class="section-header centered">
+            <span class="section-subtitle">Academic Excellence</span>
+            <h2 class="section-title">🎓 Pathways to Brilliance</h2>
+            <p class="section-desc">
+              From early years to grade 6, our progressive curriculum sparks
+              lifelong curiosity.
+            </p>
+          </div>
+          <div class="programs-tabs">
+            <div class="tabs-nav">
+              <button class="tab-btn active" data-tab="early">
+                Early Years (3-5)
+              </button>
+              <button class="tab-btn" data-tab="primary">Primary (6-10)</button>
+              <button class="tab-btn" data-tab="upper">
+                Upper Elementary (11-12)
+              </button>
+              <button class="tab-btn" data-tab="enrich">Enrichment</button>
+            </div>
+            <div class="tabs-content">
+              <div class="tab-pane active" id="early">
+                <div class="program-detail">
+                  <div class="program-info">
+                    <h3>Wonder Years Program</h3>
+                    <p>
+                      Play-based, inquiry-driven foundation with Montessori
+                      influences. Focus on social skills, early literacy,
+                      numeracy, and creative expression.
+                    </p>
+                    <ul class="program-features">
+                      <li>
+                        <i class="fas fa-check-circle"></i> Low teacher-student
+                        ratio (1:6)
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Forest Fridays
+                        nature immersion
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Multisensory phonics
+                        approach
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Social-emotional
+                        curriculum
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="program-image"><i class="fas fa-child"></i></div>
+                </div>
+              </div>
+              <div class="tab-pane" id="primary">
+                <div class="program-detail">
+                  <div class="program-info">
+                    <h3>Explorers Core</h3>
+                    <p>
+                      Integrated curriculum merging math, language arts,
+                      science, and global studies with project-based learning.
+                    </p>
+                    <ul>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Design Thinking
+                        challenges
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Spanish & Mandarin
+                        options
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> MakerSpace
+                        integration
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="program-image"><i class="fas fa-rocket"></i></div>
+                </div>
+              </div>
+              <div class="tab-pane" id="upper">
+                <div class="program-detail">
+                  <div class="program-info">
+                    <h3>Leadership Academy</h3>
+                    <p>
+                      Advanced critical thinking, entrepreneurship, community
+                      action projects, and personalized learning pathways.
+                    </p>
+                    <ul>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Student council &
+                        leadership
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Capstone innovation
+                        projects
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Advanced STEAM
+                        electives
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="program-image"><i class="fas fa-trophy"></i></div>
+                </div>
+              </div>
+              <div class="tab-pane" id="enrich">
+                <div class="program-detail">
+                  <div class="program-info">
+                    <h3>Beyond Boundaries</h3>
+                    <p>
+                      After-school clubs, sports, chess, coding, music
+                      ensembles, and competitive academic teams.
+                    </p>
+                    <ul>
+                      <li>
+                        <i class="fas fa-check-circle"></i> 30+ extracurriculars
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> International
+                        cultural exchange
+                      </li>
+                      <li>
+                        <i class="fas fa-check-circle"></i> Annual innovation
+                        fair
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="program-image">
+                    <i class="fas fa-globe-americas"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CAMPUS LIFE GALLERY ==================== -->
+      <section class="campus-life" id="campus">
+        <div class="container">
+          <div class="section-header centered">
+            <span class="section-subtitle">Experience The Magic</span>
+            <h2 class="section-title">📸 A Day in Our World</h2>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <div class="gallery-overlay">
+                <i class="fas fa-camera"></i><span>Outdoor Classroom</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-overlay">
+                <i class="fas fa-camera"></i><span>STEAM Lab</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-overlay">
+                <i class="fas fa-camera"></i><span>Art Studio</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-overlay">
+                <i class="fas fa-camera"></i><span>Sports Field</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-overlay">
+                <i class="fas fa-camera"></i><span>Library Nook</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-overlay">
+                <i class="fas fa-camera"></i><span>Music Room</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TEACHER SPOTLIGHT ==================== -->
+      <section class="teacher-spotlight">
+        <div class="container">
+          <h2 class="section-title centered">
+            🍎 The Heart of Bosto: Our Mentors
+          </h2>
+          <div class="teachers-carousel">
+            <div class="teacher-card">
+              <div class="teacher-avatar">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <h3>Dr. Eleanor Vance</h3>
+              <p>Literacy Director</p>
+              <div class="teacher-bio">
+                ✨ 22 years nurturing young readers & authors.
+              </div>
+            </div>
+            <div class="teacher-card">
+              <div class="teacher-avatar"><i class="fas fa-flask"></i></div>
+              <h3>Mr. Kip Rotich</h3>
+              <p>Science Explorer</p>
+              <div class="teacher-bio">
+                🔬 Inquiry-based wonder & eco-stewardship.
+              </div>
+            </div>
+            <div class="teacher-card">
+              <div class="teacher-avatar"><i class="fas fa-palette"></i></div>
+              <h3>Ms. Yuki Chen</h3>
+              <p>Creative Arts Lead</p>
+              <div class="teacher-bio">🎨 Mural projects & drama therapy.</div>
+            </div>
+            <div class="teacher-card">
+              <div class="teacher-avatar"><i class="fas fa-globe"></i></div>
+              <h3>Mr. Omar Hassan</h3>
+              <p>Global Citizenship</p>
+              <div class="teacher-bio">
+                🌱 Languages, empathy & social impact.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TESTIMONIALS ==================== -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="testimonial-wrapper">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <div class="testimonial-slider" id="testimonialSlider">
+              <div class="testimonial-item active">
+                <p>
+                  "Bosto Primary didn’t just teach my daughter math — it taught
+                  her how to be brave, curious, and kind. The garden classroom
+                  changed our lives."
+                </p>
+                <div class="testimonial-author">
+                  — Maria L., Parent & Alumni
+                </div>
+              </div>
+              <div class="testimonial-item">
+                <p>
+                  "The sense of community is unparalleled. My son looks forward
+                  to school every single day. The teachers genuinely care about
+                  each child's spark."
+                </p>
+                <div class="testimonial-author">— James T., Parent Council</div>
+              </div>
+              <div class="testimonial-item">
+                <p>
+                  "As an educator myself, I'm blown away by the innovation and
+                  emotional safety at Bosto. It's a model for modern primary
+                  education."
+                </p>
+                <div class="testimonial-author">
+                  — Dr. Sarah Kim, Education Consultant
+                </div>
+              </div>
+            </div>
+            <div class="slider-controls">
+              <button class="prev-testi">
+                <i class="fas fa-chevron-left"></i></button
+              ><button class="next-testi">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ADMISSIONS CALLOUT ==================== -->
+      <section class="admissions-cta" id="admissions">
+        <div class="container">
+          <div class="cta-card">
+            <div class="cta-content">
+              <h2>Ready to join the Bosto family?</h2>
+              <p>
+                Limited seats for 2026–2027. Schedule a personalized campus tour
+                or begin your application journey.
+              </p>
+              <button class="btn-primary btn-large" id="applyNowBtn">
+                Apply for admission →
+              </button>
+            </div>
+            <div class="cta-decoration">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== BLOG / NEWS ==================== -->
+      <section class="news-section">
+        <div class="container">
+          <h2 class="section-title centered">📰 Recent Stories</h2>
+          <div class="news-grid">
+            <article class="news-card">
+              <div class="news-date">March 28, 2026</div>
+              <h3>🌍 Bosto Wins Green School Award 2026</h3>
+              <p>
+                Recognized for outstanding sustainability initiatives and
+                outdoor learning programs.
+              </p>
+              <a href="#" class="read-more">Read more →</a>
+            </article>
+            <article class="news-card">
+              <div class="news-date">March 15, 2026</div>
+              <h3>🎭 Annual Arts Festival: "Dreamscapes"</h3>
+              <p>
+                Students showcase original performances, visual arts, and
+                musical talents.
+              </p>
+              <a href="#" class="read-more">Read more →</a>
+            </article>
+            <article class="news-card">
+              <div class="news-date">March 5, 2026</div>
+              <h3>🤖 Robotics Team Advances to Nationals</h3>
+              <p>
+                Our young innovators secure top spot in regional competition.
+              </p>
+              <a href="#" class="read-more">Read more →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT & NEWSLETTER ==================== -->
+      <section class="contact-section" id="contact">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2>Let's Connect</h2>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> 670 Learning Lane,
+                Springfield, Bosto County
+              </p>
+              <p><i class="fas fa-phone-alt"></i> +1 (555) 762-8842</p>
+              <p><i class="fas fa-envelope"></i> hello@bostoprimary.edu</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a
+                ><a href="#"><i class="fab fa-facebook-f"></i></a
+                ><a href="#"><i class="fab fa-youtube"></i></a
+                ><a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+            <div class="contact-form">
+              <h3>Send us a message</h3>
+              <form id="contactForm">
+                <input type="text" placeholder="Your name" required /><input
+                  type="email"
+                  placeholder="Email address"
+                  required
+                /><textarea rows="4" placeholder="Your message..."></textarea
+                ><button type="submit" class="btn-primary">
+                  Send Message <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Bosto Primary School</h4>
+            <p>
+              Accredited institution since 1985. Where every child is a
+              masterpiece in progress.
+            </p>
+            <div class="footer-badges">
+              <span>🌟 Green Flag Eco-School</span
+              ><span>🏆 IB PYP Candidate</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Resources</h4>
+            <ul>
+              <li><a href="#">Academic Calendar</a></li>
+              <li><a href="#">Parent Portal</a></li>
+              <li><a href="#">Lunch Menu</a></li>
+              <li><a href="#">Employment</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Visit Us</h4>
+            <p>Mon-Fri: 8:00 am – 4:00 pm<br />Saturday Tours: 10am – 12pm</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Bosto Primary — Designed with ♥ for curious minds.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="globalToast" class="toast-notification"></div>
+  </body>
+</html>

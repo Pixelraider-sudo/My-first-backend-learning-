@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bosto Primary - Teachers Portal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-dark: #1e2f2a;
+        --primary-wood: #7c5e3a;
+        --primary-terracotta: #c17b3a;
+        --primary-sand: #d9b382;
+        --bg-warm: #fefcf5;
+        --bg-cream: #fff6ea;
+        --text-dark: #2a2b26;
+        --text-soft: #5b5a55;
+        --text-light: #8b7355;
+        --white: #ffffff;
+        --success: #2e7d32;
+        --warning: #ed6c02;
+        --danger: #d32f2f;
+        --info: #0288d1;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        --border-radius: 16px;
+        --border-radius-lg: 24px;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg-warm);
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      /* Layout */
+      .app-container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 280px;
+        background: var(--white);
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+        position: fixed;
+        height: 100vh;
+        overflow-y: auto;
+        transition: all 0.3s;
+        z-index: 100;
+      }
+
+      .sidebar-header {
+        padding: 32px 24px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .school-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .logo-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--primary-sand);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-icon i {
+        font-size: 24px;
+        color: var(--primary-dark);
+      }
+
+      .school-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .user-info {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .user-avatar {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-sand),
+          var(--primary-terracotta)
+        );
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+
+      .user-details h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .user-details p {
+        font-size: 0.8rem;
+        color: var(--text-light);
+      }
+
+      /* Navigation */
+      .nav-menu {
+        padding: 24px;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: var(--border-radius);
+        color: var(--text-soft);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .nav-item:hover {
+        background: var(--bg-cream);
+        color: var(--primary-terracotta);
+      }
+
+      .nav-item.active {
+        background: var(--primary-dark);
+        color: white;
+      }
+
+      .nav-item i {
+        width: 24px;
+        font-size: 1.2rem;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        margin-left: 280px;
+        padding: 24px 32px;
+      }
+
+      /* Header */
+      .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .page-title h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+      }
+
+      .page-title p {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .notification-btn {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--danger);
+        color: white;
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: 10px;
+      }
+
+      /* Dashboard Cards */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      .stat-card {
+        background: var(--white);
+        padding: 24px;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .stat-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--bg-cream);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+
+      .stat-icon i {
+        font-size: 1.5rem;
+        color: var(--primary-terracotta);
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .stat-label {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      /* Schedule Table */
+      .schedule-section,
+      .gradebook-section,
+      .attendance-section {
+        background: var(--white);
+        border-radius: var(--border-radius-lg);
+        padding: 24px;
+        margin-bottom: 32px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      .section-header h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .btn-primary {
+        background: var(--primary-dark);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 40px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-terracotta);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 1px solid var(--primary-sand);
+        padding: 8px 16px;
+        border-radius: 40px;
+        cursor: pointer;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      th {
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .status-present {
+        color: var(--success);
+        font-weight: 500;
+      }
+
+      .status-absent {
+        color: var(--danger);
+      }
+
+      .status-late {
+        color: var(--warning);
+      }
+
+      /* Grade Entry */
+      .grade-input {
+        width: 80px;
+        padding: 6px 8px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      /* Tabs */
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .tab {
+        padding: 10px 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        color: var(--text-light);
+      }
+
+      .tab.active {
+        color: var(--primary-terracotta);
+        border-bottom: 2px solid var(--primary-terracotta);
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-100%);
+        }
+        .sidebar.open {
+          transform: translateX(0);
+        }
+        .main-content {
+          margin-left: 0;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Toast */
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: var(--primary-dark);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 40px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 1000;
+      }
+
+      .toast.show {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="school-logo">
+            <div class="logo-icon">
+              <i class="fas fa-tree"></i>
+            </div>
+            <div class="school-name">Bosto Primary</div>
+          </div>
+          <div class="user-info">
+            <div class="user-avatar">ME</div>
+            <div class="user-details">
+              <h4>Ms. Eleanor Vance</h4>
+              <p>Grade 4B Class Teacher</p>
+            </div>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <div class="nav-item active" data-page="dashboard">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </div>
+          <div class="nav-item" data-page="gradebook">
+            <i class="fas fa-book-open"></i>
+            <span>Gradebook</span>
+          </div>
+          <div class="nav-item" data-page="attendance">
+            <i class="fas fa-calendar-check"></i>
+            <span>Attendance</span>
+          </div>
+          <div class="nav-item" data-page="assignments">
+            <i class="fas fa-tasks"></i>
+            <span>Assignments</span>
+          </div>
+          <div class="nav-item" data-page="timetable">
+            <i class="fas fa-clock"></i>
+            <span>Timetable</span>
+          </div>
+          <div class="nav-item" data-page="messages">
+            <i class="fas fa-envelope"></i>
+            <span>Messages</span>
+          </div>
+          <div class="nav-item" data-page="reports">
+            <i class="fas fa-chart-bar"></i>
+            <span>Reports</span>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="top-bar">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="page-title">
+            <h1>Teacher Dashboard</h1>
+            <p>Welcome back, Ms. Eleanor! Here's what's happening today.</p>
+          </div>
+          <div class="header-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </button>
+            <button class="btn-outline">
+              <i class="fas fa-user-circle"></i> Profile
+            </button>
+          </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard-page" class="page-content">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-users"></i></div>
+              <div class="stat-value">24</div>
+              <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="stat-value">92%</div>
+              <div class="stat-label">Attendance Today</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+              <div class="stat-value">12</div>
+              <div class="stat-label">Pending Grading</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="stat-value">84.5%</div>
+              <div class="stat-label">Class Average</div>
+            </div>
+          </div>
+
+          <div class="schedule-section">
+            <div class="section-header">
+              <h2><i class="fas fa-calendar"></i> Today's Schedule</h2>
+              <button class="btn-primary" id="markAllPresent">
+                Mark All Present
+              </button>
+            </div>
+            <table id="today-schedule">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Subject</th>
+                  <th>Class</th>
+                  <th>Room</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>08:30 AM</td>
+                  <td>Mathematics</td>
+                  <td>Grade 4B</td>
+                  <td>Room 204</td>
+                  <td>
+                    <button
+                      class="btn-outline"
+                      onclick="showToast('Starting Mathematics class')"
+                    >
+                      Start
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>10:00 AM</td>
+                  <td>Science</td>
+                  <td>Grade 4B</td>
+                  <td>Lab 101</td>
+                  <td>
+                    <button
+                      class="btn-outline"
+                      onclick="showToast('Science lab session')"
+                    >
+                      Start
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>11:30 AM</td>
+                  <td>English</td>
+                  <td>Grade 4B</td>
+                  <td>Room 204</td>
+                  <td>
+                    <button
+                      class="btn-outline"
+                      onclick="showToast('English reading session')"
+                    >
+                      Start
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>02:00 PM</td>
+                  <td>Social Studies</td>
+                  <td>Grade 4B</td>
+                  <td>Room 301</td>
+                  <td>
+                    <button
+                      class="btn-outline"
+                      onclick="showToast('Social Studies project')"
+                    >
+                      Start
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Gradebook Page -->
+        <div id="gradebook-page" class="page-content" style="display: none">
+          <div class="gradebook-section">
+            <div class="section-header">
+              <h2><i class="fas fa-edit"></i> Gradebook - Term 2</h2>
+              <div>
+                <button class="btn-outline" id="exportGrades">
+                  <i class="fas fa-download"></i> Export
+                </button>
+                <button class="btn-primary" id="saveGrades">
+                  <i class="fas fa-save"></i> Save All
+                </button>
+              </div>
+            </div>
+            <div class="tabs">
+              <button class="tab active" data-subject="math">
+                Mathematics
+              </button>
+              <button class="tab" data-subject="science">Science</button>
+              <button class="tab" data-subject="english">English</button>
+              <button class="tab" data-subject="social">Social Studies</button>
+            </div>
+            <div id="gradebook-table-container"></div>
+          </div>
+        </div>
+
+        <!-- Attendance Page -->
+        <div id="attendance-page" class="page-content" style="display: none">
+          <div class="attendance-section">
+            <div class="section-header">
+              <h2>
+                <i class="fas fa-clipboard-list"></i> Attendance - March 28,
+                2026
+              </h2>
+              <button class="btn-primary" id="submitAttendance">
+                Submit Attendance
+              </button>
+            </div>
+            <table id="attendance-table">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Student Name</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody id="attendance-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Assignments Page -->
+        <div id="assignments-page" class="page-content" style="display: none">
+          <div class="gradebook-section">
+            <div class="section-header">
+              <h2><i class="fas fa-tasks"></i> Assignments</h2>
+              <button class="btn-primary" id="newAssignmentBtn">
+                <i class="fas fa-plus"></i> New Assignment
+              </button>
+            </div>
+            <div id="assignments-list"></div>
+          </div>
+        </div>
+
+        <!-- Timetable Page -->
+        <div id="timetable-page" class="page-content" style="display: none">
+          <div class="schedule-section">
+            <div class="section-header">
+              <h2><i class="fas fa-table"></i> Weekly Timetable</h2>
+            </div>
+            <div id="weekly-timetable"></div>
+          </div>
+        </div>
+
+        <!-- Messages Page -->
+        <div id="messages-page" class="page-content" style="display: none">
+          <div class="gradebook-section">
+            <div class="section-header">
+              <h2><i class="fas fa-envelope"></i> Messages</h2>
+              <button class="btn-primary" id="newMessageBtn">
+                <i class="fas fa-plus"></i> New Message
+              </button>
+            </div>
+            <div id="messages-list"></div>
+          </div>
+        </div>
+
+        <!-- Reports Page -->
+        <div id="reports-page" class="page-content" style="display: none">
+          <div class="gradebook-section">
+            <div class="section-header">
+              <h2><i class="fas fa-chart-bar"></i> Reports & Analytics</h2>
+            </div>
+            <div id="reports-content"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+
+    <script>
+      // Student Data
+      const students = [
+        { id: 1, name: "Emma Williams" },
+        { id: 2, name: "Liam Kennedy" },
+        { id: 3, name: "Sofia Martinez" },
+        { id: 4, name: "Noah Peterson" },
+        { id: 5, name: "Olivia Chen" },
+        { id: 6, name: "Mason Taylor" },
+      ];
+
+      // Grades Data
+      let grades = {
+        math: { 1: 92, 2: 78, 3: 95, 4: 65, 5: 88, 6: 82 },
+        science: { 1: 88, 2: 82, 3: 94, 4: 70, 5: 85, 6: 79 },
+        english: { 1: 95, 2: 75, 3: 96, 4: 68, 5: 90, 6: 84 },
+        social: { 1: 75, 2: 70, 3: 82, 4: 60, 5: 78, 6: 72 },
+      };
+
+      // Attendance Data
+      let attendance = {};
+      students.forEach((s) => {
+        attendance[s.id] = "present";
+      });
+
+      // Assignments Data
+      let assignments = [
+        {
+          id: 1,
+          title: "Fractions Worksheet",
+          subject: "Math",
+          due: "Mar 30, 2026",
+          submissions: 18,
+          total: 24,
+        },
+        {
+          id: 2,
+          title: "States of Matter Lab Report",
+          subject: "Science",
+          due: "Apr 2, 2026",
+          submissions: 12,
+          total: 24,
+        },
+        {
+          id: 3,
+          title: "Book Review",
+          subject: "English",
+          due: "Apr 5, 2026",
+          submissions: 8,
+          total: 24,
+        },
+      ];
+
+      // Messages Data
+      let messages = [
+        {
+          id: 1,
+          from: "Parent - Maria L.",
+          subject: "Parent-Teacher Conference",
+          date: "Mar 27",
+          read: false,
+        },
+        {
+          id: 2,
+          from: "Principal",
+          subject: "Staff Meeting Reminder",
+          date: "Mar 26",
+          read: true,
+        },
+        {
+          id: 3,
+          from: "Parent - James T.",
+          subject: "Question about homework",
+          date: "Mar 25",
+          read: false,
+        },
+      ];
+
+      function showToast(msg) {
+        const toast = document.getElementById("toast");
+        toast.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3000);
+      }
+
+      function renderGradebook(subject = "math") {
+        const container = document.getElementById("gradebook-table-container");
+        let subjectName =
+          subject === "math"
+            ? "Mathematics"
+            : subject === "science"
+              ? "Science"
+              : subject === "english"
+                ? "English"
+                : "Social Studies";
+        let html = `<table><thead><tr><th>Student</th><th>Score (100)</th><th>Grade</th></tr></thead><tbody>`;
+        students.forEach((s) => {
+          let score = grades[subject][s.id];
+          let grade =
+            score >= 90
+              ? "A"
+              : score >= 80
+                ? "B"
+                : score >= 70
+                  ? "C"
+                  : score >= 60
+                    ? "D"
+                    : "F";
+          html += `<tr>
+                    <td>${s.name}</td>
+                    <td><input type="number" class="grade-input" data-student="${s.id}" data-subject="${subject}" value="${score}" min="0" max="100"></td>
+                    <td>${grade}</td>
+                </tr>`;
+        });
+        html += `</tbody></table>`;
+        container.innerHTML = html;
+      }
+
+      function renderAttendance() {
+        let html = "";
+        students.forEach((s, idx) => {
+          let status = attendance[s.id];
+          html += `<tr>
+                    <td>${idx + 1}</td>
+                    <td>${s.name}</td>
+                    <td>
+                        <select class="attendance-status" data-student="${s.id}">
+                            <option value="present" ${status === "present" ? "selected" : ""}>Present</option>
+                            <option value="absent" ${status === "absent" ? "selected" : ""}>Absent</option>
+                            <option value="late" ${status === "late" ? "selected" : ""}>Late</option>
+                            <option value="excused" ${status === "excused" ? "selected" : ""}>Excused</option>
+                        </select>
+                    </td>
+                    <td><input type="text" placeholder="Notes" class="attendance-notes" data-student="${s.id}"></td>
+                </tr>`;
+        });
+        document.getElementById("attendance-tbody").innerHTML = html;
+      }
+
+      function renderAssignments() {
+        let html = `<div class="stats-grid">`;
+        assignments.forEach((a) => {
+          let percent = ((a.submissions / a.total) * 100).toFixed(0);
+          html += `<div class="stat-card">
+                    <h3>${a.title}</h3>
+                    <p><strong>${a.subject}</strong> | Due: ${a.due}</p>
+                    <div>Submissions: ${a.submissions}/${a.total} (${percent}%)</div>
+                    <button class="btn-outline" style="margin-top: 12px;" onclick="showToast('Viewing ${a.title} submissions')">View Submissions</button>
+                </div>`;
+        });
+        html += `</div>`;
+        document.getElementById("assignments-list").innerHTML = html;
+      }
+
+      function renderMessages() {
+        let html = `<table><thead><tr><th>From</th><th>Subject</th><th>Date</th><th>Status</th></tr></thead><tbody>`;
+        messages.forEach((m) => {
+          html += `<tr>
+                    <td>${m.from}</td>
+                    <td>${m.subject}</td>
+                    <td>${m.date}</td>
+                    <td>${m.read ? '<span style="color:var(--text-light)">Read</span>' : '<span style="color:var(--primary-terracotta)">Unread</span>'}</td>
+                </tr>`;
+        });
+        html += `</tbody></table>`;
+        document.getElementById("messages-list").innerHTML = html;
+      }
+
+      function renderWeeklyTimetable() {
+        let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+        let subjects = [
+          "Mathematics",
+          "Science",
+          "English",
+          "Social Studies",
+          "Arts",
+        ];
+        let html = `<table><thead><tr><th>Time</th>${days.map((d) => `<th>${d}</th>`).join("")}</tr></thead><tbody>`;
+        let times = [
+          "08:30-09:30",
+          "09:45-10:45",
+          "11:00-12:00",
+          "13:00-14:00",
+          "14:15-15:15",
+        ];
+        times.forEach((time, i) => {
+          html += `<tr><td><strong>${time}</strong></td>`;
+          days.forEach(() => {
+            html += `<td>${subjects[i % subjects.length]}<br><small>Room ${200 + i}</small></td>`;
+          });
+          html += `</tr>`;
+        });
+        html += `</tbody></table>`;
+        document.getElementById("weekly-timetable").innerHTML = html;
+      }
+
+      function renderReports() {
+        let avg =
+          (Object.values(grades.math).reduce((a, b) => a + b, 0) +
+            Object.values(grades.science).reduce((a, b) => a + b, 0) +
+            Object.values(grades.english).reduce((a, b) => a + b, 0) +
+            Object.values(grades.social).reduce((a, b) => a + b, 0)) /
+          (students.length * 4);
+        let html = `<div class="stats-grid">
+                <div class="stat-card"><div class="stat-value">${avg.toFixed(1)}%</div><div class="stat-label">Overall Class Average</div></div>
+                <div class="stat-card"><div class="stat-value">${Object.values(attendance).filter((s) => s === "present").length}</div><div class="stat-label">Present Today</div></div>
+                <div class="stat-card"><div class="stat-value">${assignments.reduce((a, b) => a + b.submissions, 0)}/${assignments.reduce((a, b) => a + b.total, 0)}</div><div class="stat-label">Total Submissions</div></div>
+            </div>
+            <div class="schedule-section"><h3>Subject Performance</h3>
+            <table><tr><th>Subject</th><th>Average</th><th>Highest</th><th>Lowest</th></tr>
+            ${Object.entries(grades)
+              .map(([sub, scores]) => {
+                let vals = Object.values(scores);
+                let avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+                return `<tr><td>${sub}</td><td>${avg.toFixed(1)}%</td><td>${Math.max(...vals)}</td><td>${Math.min(...vals)}</td></tr>`;
+              })
+              .join("")}
+            </table></div>`;
+        document.getElementById("reports-content").innerHTML = html;
+      }
+
+      // Page Navigation
+      const pages = [
+        "dashboard",
+        "gradebook",
+        "attendance",
+        "assignments",
+        "timetable",
+        "messages",
+        "reports",
+      ];
+      function showPage(page) {
+        pages.forEach((p) => {
+          document.getElementById(`${p}-page`).style.display =
+            p === page ? "block" : "none";
+        });
+        document.querySelectorAll(".nav-item").forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("data-page") === page)
+            item.classList.add("active");
+        });
+        if (page === "gradebook") renderGradebook();
+        if (page === "attendance") renderAttendance();
+        if (page === "assignments") renderAssignments();
+        if (page === "messages") renderMessages();
+        if (page === "timetable") renderWeeklyTimetable();
+        if (page === "reports") renderReports();
+      }
+
+      // Event Listeners
+      document.querySelectorAll(".nav-item").forEach((item) => {
+        item.addEventListener("click", () =>
+          showPage(item.getAttribute("data-page")),
+        );
+      });
+
+      document
+        .getElementById("mobileMenuBtn")
+        ?.addEventListener("click", () => {
+          document.getElementById("sidebar").classList.toggle("open");
+        });
+
+      document.getElementById("saveGrades")?.addEventListener("click", () => {
+        document.querySelectorAll(".grade-input").forEach((input) => {
+          let studentId = parseInt(input.dataset.student);
+          let subject = input.dataset.subject;
+          grades[subject][studentId] = parseInt(input.value);
+        });
+        showToast("Grades saved successfully!");
+      });
+
+      document
+        .getElementById("submitAttendance")
+        ?.addEventListener("click", () => {
+          document.querySelectorAll(".attendance-status").forEach((select) => {
+            let studentId = parseInt(select.dataset.student);
+            attendance[studentId] = select.value;
+          });
+          showToast("Attendance submitted!");
+        });
+
+      document
+        .getElementById("markAllPresent")
+        ?.addEventListener("click", () => {
+          students.forEach((s) => (attendance[s.id] = "present"));
+          renderAttendance();
+          showToast("All marked present");
+        });
+
+      document.getElementById("exportGrades")?.addEventListener("click", () => {
+        showToast("Exporting grades...");
+      });
+
+      document
+        .getElementById("newAssignmentBtn")
+        ?.addEventListener("click", () => {
+          showToast("Create new assignment form would open here");
+        });
+
+      document
+        .getElementById("newMessageBtn")
+        ?.addEventListener("click", () => {
+          showToast("New message composer");
+        });
+
+      // Tab switching for gradebook
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document
+            .querySelectorAll(".tab")
+            .forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          renderGradebook(tab.dataset.subject);
+        });
+      });
+
+      // Initialize
+      renderGradebook();
+      renderAttendance();
+      showPage("dashboard");
+    </script>
+  </body>
+</html>

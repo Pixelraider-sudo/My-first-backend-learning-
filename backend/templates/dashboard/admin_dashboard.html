@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Welcome, {{ current_user.full_name }}!</h1>
+            <p class="lead">Administrator Dashboard</p>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x"></i>
+                    <h3 class="mt-2">{{ students_count }}</h3>
+                    <p>Total Students</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-chalkboard-user fa-3x"></i>
+                    <h3 class="mt-2">{{ teachers_count }}</h3>
+                    <p>Total Teachers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-book fa-3x"></i>
+                    <h3 class="mt-2">8</h3>
+                    <p>Active Classes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-dollar-sign fa-3x"></i>
+                    <h3 class="mt-2">95%</h3>
+                    <p>Fee Collection</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Recent Activities</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">✓ New student registered: John Doe</li>
+                        <li class="list-group-item">✓ Assignment submitted by Grade 5</li>
+                        <li class="list-group-item">✓ Parent meeting scheduled</li>
+                        <li class="list-group-item">✓ Fee payment received: $500</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary w-100 mb-2" onclick="alert('Feature coming soon!')">
+                        ➕ Add New Student
+                    </button>
+                    <button class="btn btn-success w-100 mb-2" onclick="alert('Feature coming soon!')">
+                        👨‍🏫 Add New Teacher
+                    </button>
+                    <button class="btn btn-info w-100 mb-2" onclick="alert('Feature coming soon!')">
+                        📚 Create Class
+                    </button>
+                    <button class="btn btn-warning w-100" onclick="alert('Feature coming soon!')">
+                        💰 Generate Fee Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
